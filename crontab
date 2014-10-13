@@ -1,0 +1,10 @@
+*/15 * * * * python /home/pi/plant_cam/single.py >> /home/pi/picamera-dropbox.log 2>&1
+
+
+* */1 * * * find /home/pi/plant_cam -mtime +3 -name 'plant*' -exec rm {} \;
+
+
+
+
+
+
