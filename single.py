@@ -52,18 +52,21 @@ def main():
 
     with picamera.PiCamera() as camera:
         sleep(2)
-        camera.resolution = (2592, 1944)
+        camera.resolution = (2000, 2000)
         camera.led = False
         camera.rotation = 180
         camera.awb_mode = 'off'
-        camera.awb_gains = 1.85,1.45
-        camera.brightness = 55
-        camera.contrast = 60
+        camera.awb_gains = 1.9,1.45
+        camera.iso = 100
+        camera.shutter_speed = 15000
+        camera.contrast = 80
         timestamp = strftime("%Y-%m-%d_%H-%M-%S")
-        filename = 'img%s.jpg' % timestamp
+        filename = 'plant_%s.jpg' % timestamp
+        camera.brightness = 60
         camera.capture(filename)
         print 'Captured %s' % filename
         upload_to_dropbox(client, filename)
+
 
 if __name__ == '__main__':
     main()
