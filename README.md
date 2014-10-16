@@ -4,17 +4,12 @@ Plant Cam
 ![Create App](img/0.png)
 
 ### Why? What?
-There is building work going on over the road from Raspberry Pi HQ. I wanted to set up a longterm timelapse of the process. I am also lazy and didn't want to have to check that it was doing it's thing - so I thought I'd hook it up to Dropbox so I can see the photos trickle in.
 
 At the moment the `single.py` code just takes one photo every time it is run. I am planning on running it using cron.
 
-When I get a moment I will add a GPIO button press version
-
-And I may also set up a timelapse version controlled completely by python... we'll see.
-
 **PLEASE NOTE - Don't panic, I have changed all the keys and things, so I'm leaking personal info **
 
-You can check out my timelapse photos [here](https://www.dropbox.com/sh/sjmqwxusnqmwjj7/AAD20vhJQLQCfON2ed9mPebba).
+You can check out my timelapse photos [here](https://www.dropbox.com/sh/hwzk4ibneot0nlj/AABeGXH2EsnSxfKrGJeh7ObIa?dl=0).
 
 
 
@@ -64,13 +59,13 @@ Depending on your internet connection this may take a while.
 Then we want to download this github repo.:
 
 ```bash
-git clone https://github.com/RZRZR/Picamera-to-dropbox.git
+git clone https://github.com/RZRZR/plant_cam.git
 ```
 
 Enter the directory
 
 ```bash
-cd Picamera-to-dropbox
+cd plant_cam
 ```
 ### Setting up API
 We need to put in our app key and secret, so open api.py
@@ -94,7 +89,7 @@ python single.py
 ### Authorising Dropbox
 First time you run `single.py` it will ask you to authorise the app use with Dropbox. Follow the the instructions in terminal.
 ```bash
-pi@raspberrypi ~/Picamera-to-dropbox $ python single.py
+pi@raspberrypi ~/plant_cam $ python single.py
 1. Go to: https://www.dropbox.com/1/oauth2/authorize?response_type=code&client_id=099dr5c4cpncyhe
 2. Click "Allow" (you might have to log in first)
 3. Copy the authorization code.
@@ -117,7 +112,7 @@ key = ''
 After the first time you will see:
 
 ```bash
-pi@raspberrypi ~/Picamera-to-dropbox $ python single.py
+pi@raspberrypi ~/plant_cam $ python single.py
 You are authorised!
 Captured img2014-06-20_10-36-25.jpg
 sending img2014-06-20_10-36-25.jpg to dropbox
