@@ -1,4 +1,4 @@
-Picamera-to-dropbox
+Plant Cam
 ===================
 
 ![Create App](img/0.png)
@@ -160,9 +160,12 @@ That's better!
 sudo crontab -e
 ```
 We are using *sudo* crontab because we may want to use the GPIOs in future.
-add this line to run the script every 2 minutes:
+add this line to run the script every 15 minutes:
 ```bash
-*/10 * * * *  python /home/pi/Picamera-to-dropbox/single.py >> /home/pi/picamera-dropbox.log 2>&1
+*/15 * * * * python /home/pi/plant_cam/single.py >> /home/pi/picamera-dropbox.log 2>&1
+
+
+* */1 * * * find /home/pi/plant_cam -mtime +3 -name 'plant*' -exec rm {} \;
 ```
 
 Create your log file
@@ -179,33 +182,8 @@ watch cat picamera-dropbox.log
 
 It'll look something like this:
 ```bash
-Captured img2014-07-18_19-03-06.jpg
-sending img2014-07-18_19-03-06.jpg to dropbox
-uploaded: img2014-07-18_19-03-06.jpg
+
 You are authorised!
 Captured img2014-07-18_19-04-05.jpg
 sending img2014-07-18_19-04-05.jpg to dropbox
 uploaded: img2014-07-18_19-04-05.jpg
-You are authorised!
-Captured img2014-07-18_19-05-05.jpg
-sending img2014-07-18_19-05-05.jpg to dropbox
-uploaded: img2014-07-18_19-05-05.jpg
-You are authorised!
-Captured img2014-07-18_19-06-06.jpg
-sending img2014-07-18_19-06-06.jpg to dropbox
-uploaded: img2014-07-18_19-06-06.jpg
-You are authorised!
-Captured img2014-07-18_19-07-05.jpg
-sending img2014-07-18_19-07-05.jpg to dropbox
-uploaded: img2014-07-18_19-07-05.jpg
-You are authorised!
-Captured img2014-07-18_19-08-06.jpg
-sending img2014-07-18_19-08-06.jpg to dropbox
-uploaded: img2014-07-18_19-08-06.jpg
-You are authorised!
-Captured img2014-07-18_19-10-05.jpg
-sending img2014-07-18_19-10-05.jpg to dropbox
-uploaded: img2014-07-18_19-10-05.jpg
-```
-
-.... You may want to change it to longer than 2 minutes if you don't want to fill up your dropbox storage really quickly!
