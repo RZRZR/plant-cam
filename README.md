@@ -48,10 +48,7 @@ enable camera (if you miss it the first time, just run `raspi-config`) - This as
 Make sure you are connected to the Internets. (I would SSH into your pi now)
 
 ```bash
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install python-pip
-sudo pip install dropbox
+sudo apt-get update & sudo apt-get upgrade & sudo apt-get install python-pip & sudo pip install dropbox
 ```
 
 Depending on your internet connection this may take a while.
