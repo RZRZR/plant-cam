@@ -61,7 +61,7 @@ def main():
         camera.shutter_speed = 15000
         camera.contrast = 80
         timestamp = strftime("%Y-%m-%d_%H-%M-%S")
-        filename = 'plant_%s.jpg' % timestamp
+        filename = '/home/pi/plant_%s.jpg' % timestamp
         camera.brightness = 60
         camera.capture(filename)
         print 'Captured %s' % filename
