@@ -56,7 +56,7 @@ Depending on your internet connection this may take a while.
 Then we want to download this github repo.:
 
 ```bash
-git clone https://github.com/RZRZR/plant_cam.git
+git clone https://github.com/RZRZR/plant-cam.git
 ```
 
 Enter the directory
