@@ -48,7 +48,10 @@ enable camera (if you miss it the first time, just run `raspi-config`) - This as
 Make sure you are connected to the Internets. (I would SSH into your pi now)
 
 ```bash
-sudo apt-get update & sudo apt-get upgrade & sudo apt-get install python-pip & sudo pip install dropbox
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install python-pip
+sudo pip install dropbox
 ```
 
 Depending on your internet connection this may take a while.
@@ -69,7 +72,7 @@ We need to put in our app key and secret, so open api.py
 ```bash
 nano api.py
 ```
-Replace key and secret with your Dropbox details. It should look like this:
+Replace key and secret with your Dropbox details. It should look something like this:
 
 ```python
 app_key = '059dr5c4cpncyhe'
@@ -151,14 +154,18 @@ That's better!
 ```bash
 sudo crontab -e
 ```
-We are using *sudo* crontab because we may want to use the GPIOs in future.
-add this line to run the script every 15 minutes:
+We are using *sudo* crontab because we may want to use the GPIOs in future. Add this line to run the script every 15 minutes.
+:
 ```bash
 */15 * * * * python /home/pi/plant_cam/single.py >> /home/pi/picamera-dropbox.log 2>&1
-
-
-* */1 * * * find /home/pi/plant_cam -mtime +3 -name 'plant*' -exec rm {} \;
 ```
+Soon your SD card will fill up with images. So, add this line to delete files every day at 8pm:
+
+```bash
+0 20 * * * find /home/pi/plant_cam -mtime +24 -name 'plant*' -exec rm {} \;
+```
+
+Save this file.
 
 Create your log file
 ```bash
@@ -173,9 +180,10 @@ watch cat picamera-dropbox.log
 ```
 
 It'll look something like this:
-```bash
 
+```bash
 You are authorised!
 Captured img2014-07-18_19-04-05.jpg
 sending img2014-07-18_19-04-05.jpg to dropbox
 uploaded: img2014-07-18_19-04-05.jpg
+```
