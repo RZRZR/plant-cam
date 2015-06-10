@@ -7,9 +7,7 @@ Plant Cam
 
 At the moment the `single.py` code just takes one photo every time it is run. I am planning on running it using cron.
 
-**PLEASE NOTE - Don't panic, I have changed all the keys and things, so I'm leaking personal info **
-
-You can check out my timelapse photos [here](https://www.dropbox.com/sh/hwzk4ibneot0nlj/AABeGXH2EsnSxfKrGJeh7ObIa?dl=0).
+**PLEASE NOTE - Don't panic, I have changed all the keys and things, so I'm not leaking personal info **
 
 
 
